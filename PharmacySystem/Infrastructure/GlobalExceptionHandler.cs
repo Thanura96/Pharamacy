@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using System.Windows.Forms;
 using PharmacySystem.Logging;
+using PharmacySystem.Services;
 using PharmacySystem.Utilities;
 
 namespace PharmacySystem.Infrastructure
@@ -37,7 +38,12 @@ namespace PharmacySystem.Infrastructure
                 return;
             }
 
-            _logger?.LogError(userMessage, exception);
+            if (_logger == null)
+            {
+                _logger = new LogService();
+            }
+
+            _logger.LogError(userMessage, exception);
             UiHelper.ShowError(null, $"{userMessage}{Environment.NewLine}{Environment.NewLine}Details: {exception.Message}");
         }
     }

@@ -23,7 +23,11 @@ namespace PharmacySystem.Utilities
                             Category = "Analgesics",
                             Price = 5.50m,
                             Quantity = 100,
-                            ExpiryDate = DateTime.Today.AddYears(2)
+                            ExpiryDate = DateTime.Today.AddYears(2),
+                            Dosage = "500mg",
+                            Supplier = "PharmaCorp Ltd",
+                            DiscountPercentage = 5m,
+                            RequiresPrescription = false
                         },
                         new Medicine
                         {
@@ -31,15 +35,23 @@ namespace PharmacySystem.Utilities
                             Category = "Antibiotics",
                             Price = 12.00m,
                             Quantity = 50,
-                            ExpiryDate = DateTime.Today.AddYears(1)
+                            ExpiryDate = DateTime.Today.AddYears(1),
+                            Dosage = "250mg",
+                            Supplier = "MedSupply Inc",
+                            DiscountPercentage = 0m,
+                            RequiresPrescription = true
                         },
                         new Medicine
                         {
                             Name = "Vitamin C",
                             Category = "Supplements",
                             Price = 8.75m,
-                            Quantity = 8,
-                            ExpiryDate = DateTime.Today.AddYears(3)
+                            Quantity = 80,
+                            ExpiryDate = DateTime.Today.AddYears(3),
+                            Dosage = "1000mg",
+                            Supplier = "HealthPlus",
+                            DiscountPercentage = 10m,
+                            RequiresPrescription = false
                         }
                     };
                     context.Medicines.InsertMany(medicines);
@@ -50,10 +62,42 @@ namespace PharmacySystem.Utilities
                 {
                     var customers = new List<Customer>
                     {
-                        new Customer { Name = "John Doe", Phone = "5550199" },
-                        new Customer { Name = "Jane Smith", Phone = "5550144" },
-                        new Customer { Name = "Robert Johnson", Phone = "5550177" },
-                        new Customer { Name = "Emily Davis", Phone = "5550123" }
+                        new Customer
+                        {
+                            FullName = "John Doe",
+                            Phone = "5550199",
+                            Address = "123 Main Street, Cardiff",
+                            Email = "john.doe@example.com",
+                            Username = "johndoe",
+                            Password = "pass123"
+                        },
+                        new Customer
+                        {
+                            FullName = "Jane Smith",
+                            Phone = "5550144",
+                            Address = "45 Oak Avenue, Cardiff",
+                            Email = "jane.smith@example.com",
+                            Username = "janesmith",
+                            Password = "pass123"
+                        },
+                        new Customer
+                        {
+                            FullName = "Robert Johnson",
+                            Phone = "5550177",
+                            Address = "78 Park Lane, Cardiff",
+                            Email = "robert.j@example.com",
+                            Username = "robertj",
+                            Password = "pass123"
+                        },
+                        new Customer
+                        {
+                            FullName = "Emily Davis",
+                            Phone = "5550123",
+                            Address = "12 River Road, Cardiff",
+                            Email = "emily.davis@example.com",
+                            Username = "emilyd",
+                            Password = "pass123"
+                        }
                     };
                     context.Customers.InsertMany(customers);
                     logger?.LogInfo("Seeded sample customers into PharmacyDB.");

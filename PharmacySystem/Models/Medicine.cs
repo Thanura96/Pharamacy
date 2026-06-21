@@ -4,6 +4,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace PharmacySystem.Models
 {
+    [BsonIgnoreExtraElements]
     public class Medicine
     {
         [BsonId]
@@ -25,5 +26,18 @@ namespace PharmacySystem.Models
 
         [BsonElement("ExpiryDate")]
         public DateTime ExpiryDate { get; set; }
+
+        [BsonElement("Dosage")]
+        public string Dosage { get; set; }
+
+        [BsonElement("Supplier")]
+        public string Supplier { get; set; }
+
+        [BsonElement("DiscountPercentage")]
+        [BsonRepresentation(BsonType.Decimal128)]
+        public decimal DiscountPercentage { get; set; }
+
+        [BsonElement("RequiresPrescription")]
+        public bool RequiresPrescription { get; set; }
     }
 }

@@ -60,7 +60,9 @@ namespace PharmacySystem.Services
 
             string query = searchTerm.Trim().ToLower();
             return _repository.GetAll()
-                .Where(c => c.Name.ToLower().Contains(query) || c.Phone.Contains(query))
+                .Where(c => c.Name.ToLower().Contains(query) ||
+                            c.Phone.Contains(query) ||
+                            (!string.IsNullOrEmpty(c.Email) && c.Email.ToLower().Contains(query)))
                 .ToList();
         }
     }

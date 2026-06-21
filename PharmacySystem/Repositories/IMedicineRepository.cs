@@ -1,14 +1,8 @@
-using System.Collections.Generic;
 using PharmacySystem.Models;
 
 namespace PharmacySystem.Repositories
 {
-    public interface IMedicineRepository
+    public interface IMedicineRepository : IRepository<Medicine>
     {
-        void Add(Medicine medicine);
-        void Update(Medicine medicine);
-        void Delete(string id);
-        Medicine GetById(string id);
-        List<Medicine> GetAll();
     }
 }

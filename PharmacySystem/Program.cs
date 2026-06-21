@@ -14,7 +14,7 @@ namespace PharmacySystem
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            var logger = new FileLogger();
+            var logger = new LogService();
             GlobalExceptionHandler.Register(logger);
             logger.LogInfo("Pharmacy Management System starting.");
 

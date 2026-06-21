@@ -106,7 +106,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Infrastructure\GlobalExceptionHandler.cs" />
-    <Compile Include="Logging\FileLogger.cs" />
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
@@ -114,11 +113,53 @@
     <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\DashboardForm.cs">
+    <Compile Include="Forms\AdminDashboardForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\DashboardForm.Designer.cs">
-      <DependentUpon>DashboardForm.cs</DependentUpon>
+    <Compile Include="Forms\AdminDashboardForm.Designer.cs">
+      <DependentUpon>AdminDashboardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CustomerDashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CustomerDashboardForm.Designer.cs">
+      <DependentUpon>CustomerDashboardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SearchMedicineForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SearchMedicineForm.Designer.cs">
+      <DependentUpon>SearchMedicineForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MyCartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MyCartForm.Designer.cs">
+      <DependentUpon>MyCartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MyOrdersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MyOrdersForm.Designer.cs">
+      <DependentUpon>MyOrdersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CustomerProfileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CustomerProfileForm.Designer.cs">
+      <DependentUpon>CustomerProfileForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RegistrationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RegistrationForm.Designer.cs">
+      <DependentUpon>RegistrationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OrderManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OrderManagementForm.Designer.cs">
+      <DependentUpon>OrderManagementForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MedicineForm.cs">
       <SubType>Form</SubType>
@@ -138,30 +179,51 @@
     <Compile Include="Forms\SalesForm.Designer.cs">
       <DependentUpon>SalesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ReportForm.cs">
+    <Compile Include="Forms\ReportsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ReportForm.Designer.cs">
-      <DependentUpon>ReportForm.cs</DependentUpon>
+    <Compile Include="Forms\ReportsForm.Designer.cs">
+      <DependentUpon>ReportsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Medicine.cs" />
     <Compile Include="Models\Sale.cs" />
     <Compile Include="Models\ValidationResult.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\OrderStatus.cs" />
+    <Compile Include="Models\OrderItem.cs" />
+    <Compile Include="Models\CartItem.cs" />
+    <Compile Include="Models\Order.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CustomerRepository.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\ICustomerRepository.cs" />
     <Compile Include="Repositories\IMedicineRepository.cs" />
     <Compile Include="Repositories\ISaleRepository.cs" />
     <Compile Include="Repositories\MedicineRepository.cs" />
     <Compile Include="Repositories\SaleRepository.cs" />
+    <Compile Include="Repositories\IOrderRepository.cs" />
+    <Compile Include="Repositories\OrderRepository.cs" />
     <Compile Include="Services\CustomerService.cs" />
     <Compile Include="Services\Interfaces\IInventoryService.cs" />
+    <Compile Include="Services\Interfaces\INotificationService.cs" />
+    <Compile Include="Services\Interfaces\IExportService.cs" />
+    <Compile Include="Services\Interfaces\ICartService.cs" />
     <Compile Include="Services\Interfaces\IValidationService.cs" />
     <Compile Include="Services\InventoryService.cs" />
     <Compile Include="Services\MedicineService.cs" />
     <Compile Include="Services\SaleService.cs" />
+    <Compile Include="Services\CartService.cs" />
+    <Compile Include="Services\MedicineSearchService.cs" />
+    <Compile Include="Services\DashboardService.cs" />
+    <Compile Include="Services\ExpiryNotificationService.cs" />
+    <Compile Include="Services\ReportService.cs" />
+    <Compile Include="Services\LogService.cs" />
+    <Compile Include="Services\ExportService.cs" />
+    <Compile Include="Services\PdfExportService.cs" />
+    <Compile Include="Services\ExcelExportService.cs" />
     <Compile Include="Services\ValidationService.cs" />
     <Compile Include="Utilities\DatabaseSeeder.cs" />
     <Compile Include="Utilities\UiHelper.cs" />
@@ -169,8 +231,29 @@
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\DashboardForm.resx">
-      <DependentUpon>DashboardForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\AdminDashboardForm.resx">
+      <DependentUpon>AdminDashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomerDashboardForm.resx">
+      <DependentUpon>CustomerDashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SearchMedicineForm.resx">
+      <DependentUpon>SearchMedicineForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MyCartForm.resx">
+      <DependentUpon>MyCartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MyOrdersForm.resx">
+      <DependentUpon>MyOrdersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomerProfileForm.resx">
+      <DependentUpon>CustomerProfileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RegistrationForm.resx">
+      <DependentUpon>RegistrationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OrderManagementForm.resx">
+      <DependentUpon>OrderManagementForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MedicineForm.resx">
       <DependentUpon>MedicineForm.cs</DependentUpon>
@@ -181,8 +264,8 @@
     <EmbeddedResource Include="Forms\SalesForm.resx">
       <DependentUpon>SalesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ReportForm.resx">
-      <DependentUpon>ReportForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ReportsForm.resx">
+      <DependentUpon>ReportsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

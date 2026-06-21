@@ -35,7 +35,11 @@ namespace PharmacySystem.Forms
                         m.Category,
                         Price = m.Price.ToString("F2"),
                         m.Quantity,
-                        ExpiryDate = m.ExpiryDate.ToShortDateString()
+                        ExpiryDate = m.ExpiryDate.ToShortDateString(),
+                        m.Dosage,
+                        m.Supplier,
+                        Discount = $"{m.DiscountPercentage:F0}%",
+                        Prescription = m.RequiresPrescription ? "Yes" : "No"
                     }).ToList();
                 dgvMedicines.ClearSelection();
             }
@@ -52,7 +56,10 @@ namespace PharmacySystem.Forms
                 txtCategory.Text,
                 txtPrice.Text,
                 (int)numQuantity.Value,
-                dtpExpiryDate.Value.Date);
+                dtpExpiryDate.Value.Date,
+                txtDiscountPercentage.Text,
+                txtDosage.Text,
+                txtSupplier.Text);
 
             UiHelper.ApplyValidationErrors(errorProvider, result.Errors, new Dictionary<string, Control>
             {
@@ -60,10 +67,29 @@ namespace PharmacySystem.Forms
                 { "Category", txtCategory },
                 { "Price", txtPrice },
                 { "Quantity", numQuantity },
-                { "ExpiryDate", dtpExpiryDate }
+                { "ExpiryDate", dtpExpiryDate },
+                { "DiscountPercentage", txtDiscountPercentage },
+                { "Dosage", txtDosage },
+                { "Supplier", txtSupplier }
             });
 
             return result.IsValid;
+        }
+
+        private Medicine BuildMedicineFromForm()
+        {
+            return new Medicine
+            {
+                Name = txtName.Text.Trim(),
+                Category = txtCategory.Text.Trim(),
+                Price = decimal.Parse(txtPrice.Text),
+                Quantity = (int)numQuantity.Value,
+                ExpiryDate = dtpExpiryDate.Value.Date,
+                Dosage = txtDosage.Text.Trim(),
+                Supplier = txtSupplier.Text.Trim(),
+                DiscountPercentage = decimal.Parse(txtDiscountPercentage.Text),
+                RequiresPrescription = chkRequiresPrescription.Checked
+            };
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -72,15 +98,7 @@ namespace PharmacySystem.Forms
 
             try
             {
-                var medicine = new Medicine
-                {
-                    Name = txtName.Text.Trim(),
-                    Category = txtCategory.Text.Trim(),
-                    Price = decimal.Parse(txtPrice.Text),
-                    Quantity = (int)numQuantity.Value,
-                    ExpiryDate = dtpExpiryDate.Value.Date
-                };
-
+                var medicine = BuildMedicineFromForm();
                 AppContext.MedicineService.AddMedicine(medicine);
                 Logger.LogInfo($"Medicine added: {medicine.Name}");
                 ShowSuccess("Medicine successfully added!");
@@ -112,11 +130,16 @@ namespace PharmacySystem.Forms
                     return;
                 }
 
-                existingMed.Name = txtName.Text.Trim();
-                existingMed.Category = txtCategory.Text.Trim();
-                existingMed.Price = decimal.Parse(txtPrice.Text);
-                existingMed.Quantity = (int)numQuantity.Value;
-                existingMed.ExpiryDate = dtpExpiryDate.Value.Date;
+                var updated = BuildMedicineFromForm();
+                existingMed.Name = updated.Name;
+                existingMed.Category = updated.Category;
+                existingMed.Price = updated.Price;
+                existingMed.Quantity = updated.Quantity;
+                existingMed.ExpiryDate = updated.ExpiryDate;
+                existingMed.Dosage = updated.Dosage;
+                existingMed.Supplier = updated.Supplier;
+                existingMed.DiscountPercentage = updated.DiscountPercentage;
+                existingMed.RequiresPrescription = updated.RequiresPrescription;
 
                 AppContext.MedicineService.UpdateMedicine(existingMed);
                 Logger.LogInfo($"Medicine updated: {existingMed.Name}");
@@ -180,7 +203,11 @@ namespace PharmacySystem.Forms
                         m.Category,
                         Price = m.Price.ToString("F2"),
                         m.Quantity,
-                        ExpiryDate = m.ExpiryDate.ToShortDateString()
+                        ExpiryDate = m.ExpiryDate.ToShortDateString(),
+                        m.Dosage,
+                        m.Supplier,
+                        Discount = $"{m.DiscountPercentage:F0}%",
+                        Prescription = m.RequiresPrescription ? "Yes" : "No"
                     }).ToList();
 
                 dgvMedicines.DataSource = results;
@@ -214,6 +241,10 @@ namespace PharmacySystem.Forms
             txtPrice.Clear();
             numQuantity.Value = 0;
             dtpExpiryDate.Value = DateTime.Today.AddDays(1);
+            txtDosage.Clear();
+            txtSupplier.Clear();
+            txtDiscountPercentage.Text = "0";
+            chkRequiresPrescription.Checked = false;
             errorProvider.Clear();
             dgvMedicines.ClearSelection();
         }
@@ -239,6 +270,16 @@ namespace PharmacySystem.Forms
                 {
                     dtpExpiryDate.Value = date;
                 }
+
+                txtDosage.Text = row.Cells["Dosage"].Value?.ToString() ?? string.Empty;
+                txtSupplier.Text = row.Cells["Supplier"].Value?.ToString() ?? string.Empty;
+
+                var discountText = row.Cells["Discount"].Value?.ToString()?.Replace("%", string.Empty);
+                txtDiscountPercentage.Text = string.IsNullOrEmpty(discountText) ? "0" : discountText;
+
+                var prescription = row.Cells["Prescription"].Value?.ToString();
+                chkRequiresPrescription.Checked = prescription != null &&
+                    prescription.Equals("Yes", StringComparison.OrdinalIgnoreCase);
             }
             catch
             {

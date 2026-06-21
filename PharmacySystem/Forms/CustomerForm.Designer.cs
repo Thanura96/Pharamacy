@@ -20,7 +20,16 @@ namespace PharmacySystem.Forms
             this.components = new System.ComponentModel.Container();
             this.panelLeft = new System.Windows.Forms.Panel();
             this.btnClearCustomer = new System.Windows.Forms.Button();
+            this.btnUpdateCustomer = new System.Windows.Forms.Button();
             this.btnAddCustomer = new System.Windows.Forms.Button();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.lblAddress = new System.Windows.Forms.Label();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.lblPhone = new System.Windows.Forms.Label();
             this.txtCustomerName = new System.Windows.Forms.TextBox();
@@ -42,8 +51,18 @@ namespace PharmacySystem.Forms
             // panelLeft
             // 
             this.panelLeft.BackColor = System.Drawing.Color.White;
+            this.panelLeft.AutoScroll = true;
             this.panelLeft.Controls.Add(this.btnClearCustomer);
+            this.panelLeft.Controls.Add(this.btnUpdateCustomer);
             this.panelLeft.Controls.Add(this.btnAddCustomer);
+            this.panelLeft.Controls.Add(this.txtPassword);
+            this.panelLeft.Controls.Add(this.lblPassword);
+            this.panelLeft.Controls.Add(this.txtUsername);
+            this.panelLeft.Controls.Add(this.lblUsername);
+            this.panelLeft.Controls.Add(this.txtEmail);
+            this.panelLeft.Controls.Add(this.lblEmail);
+            this.panelLeft.Controls.Add(this.txtAddress);
+            this.panelLeft.Controls.Add(this.lblAddress);
             this.panelLeft.Controls.Add(this.txtPhone);
             this.panelLeft.Controls.Add(this.lblPhone);
             this.panelLeft.Controls.Add(this.txtCustomerName);
@@ -52,7 +71,7 @@ namespace PharmacySystem.Forms
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLeft.Location = new System.Drawing.Point(0, 0);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(320, 561);
+            this.panelLeft.Size = new System.Drawing.Size(320, 720);
             this.panelLeft.TabIndex = 0;
             // 
             // btnClearCustomer
@@ -63,13 +82,29 @@ namespace PharmacySystem.Forms
             this.btnClearCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClearCustomer.Font = new System.Drawing.Font("Segoe UI", 9.5f, System.Drawing.FontStyle.Bold);
             this.btnClearCustomer.ForeColor = System.Drawing.Color.White;
-            this.btnClearCustomer.Location = new System.Drawing.Point(20, 270);
+            this.btnClearCustomer.Location = new System.Drawing.Point(20, 580);
             this.btnClearCustomer.Name = "btnClearCustomer";
             this.btnClearCustomer.Size = new System.Drawing.Size(280, 36);
             this.btnClearCustomer.TabIndex = 6;
             this.btnClearCustomer.Text = "Clear Fields";
             this.btnClearCustomer.UseVisualStyleBackColor = false;
             this.btnClearCustomer.Click += new System.EventHandler(this.btnClearCustomer_Click);
+            // 
+            // btnUpdateCustomer
+            // 
+            this.btnUpdateCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(196)))), ((int)(((byte)(15)))));
+            this.btnUpdateCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdateCustomer.FlatAppearance.BorderSize = 0;
+            this.btnUpdateCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateCustomer.Font = new System.Drawing.Font("Segoe UI", 9.5f, System.Drawing.FontStyle.Bold);
+            this.btnUpdateCustomer.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateCustomer.Location = new System.Drawing.Point(165, 520);
+            this.btnUpdateCustomer.Name = "btnUpdateCustomer";
+            this.btnUpdateCustomer.Size = new System.Drawing.Size(135, 36);
+            this.btnUpdateCustomer.TabIndex = 7;
+            this.btnUpdateCustomer.Text = "Update Customer";
+            this.btnUpdateCustomer.UseVisualStyleBackColor = false;
+            this.btnUpdateCustomer.Click += new System.EventHandler(this.btnUpdateCustomer_Click);
             // 
             // btnAddCustomer
             // 
@@ -79,13 +114,90 @@ namespace PharmacySystem.Forms
             this.btnAddCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddCustomer.Font = new System.Drawing.Font("Segoe UI", 9.5f, System.Drawing.FontStyle.Bold);
             this.btnAddCustomer.ForeColor = System.Drawing.Color.White;
-            this.btnAddCustomer.Location = new System.Drawing.Point(20, 210);
+            this.btnAddCustomer.Location = new System.Drawing.Point(20, 520);
             this.btnAddCustomer.Name = "btnAddCustomer";
-            this.btnAddCustomer.Size = new System.Drawing.Size(280, 36);
+            this.btnAddCustomer.Size = new System.Drawing.Size(135, 36);
             this.btnAddCustomer.TabIndex = 5;
             this.btnAddCustomer.Text = "Add Customer";
             this.btnAddCustomer.UseVisualStyleBackColor = false;
             this.btnAddCustomer.Click += new System.EventHandler(this.btnAddCustomer_Click);
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 10f);
+            this.txtPassword.Location = new System.Drawing.Point(20, 405);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '●';
+            this.txtPassword.Size = new System.Drawing.Size(280, 25);
+            this.txtPassword.TabIndex = 12;
+            // 
+            // lblPassword
+            // 
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Font = new System.Drawing.Font("Segoe UI", 9.5f, System.Drawing.FontStyle.Bold);
+            this.lblPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(140)))), ((int)(((byte)(141)))));
+            this.lblPassword.Location = new System.Drawing.Point(17, 385);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(65, 17);
+            this.lblPassword.TabIndex = 11;
+            this.lblPassword.Text = "Password";
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 10f);
+            this.txtUsername.Location = new System.Drawing.Point(20, 345);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(280, 25);
+            this.txtUsername.TabIndex = 10;
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Segoe UI", 9.5f, System.Drawing.FontStyle.Bold);
+            this.lblUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(140)))), ((int)(((byte)(141)))));
+            this.lblUsername.Location = new System.Drawing.Point(17, 325);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(71, 17);
+            this.lblUsername.TabIndex = 9;
+            this.lblUsername.Text = "Username";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 10f);
+            this.txtEmail.Location = new System.Drawing.Point(20, 285);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(280, 25);
+            this.txtEmail.TabIndex = 8;
+            // 
+            // lblEmail
+            // 
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Font = new System.Drawing.Font("Segoe UI", 9.5f, System.Drawing.FontStyle.Bold);
+            this.lblEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(140)))), ((int)(((byte)(141)))));
+            this.lblEmail.Location = new System.Drawing.Point(17, 265);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(41, 17);
+            this.lblEmail.TabIndex = 7;
+            this.lblEmail.Text = "Email";
+            // 
+            // txtAddress
+            // 
+            this.txtAddress.Font = new System.Drawing.Font("Segoe UI", 10f);
+            this.txtAddress.Location = new System.Drawing.Point(20, 225);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(280, 25);
+            this.txtAddress.TabIndex = 6;
+            // 
+            // lblAddress
+            // 
+            this.lblAddress.AutoSize = true;
+            this.lblAddress.Font = new System.Drawing.Font("Segoe UI", 9.5f, System.Drawing.FontStyle.Bold);
+            this.lblAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(140)))), ((int)(((byte)(141)))));
+            this.lblAddress.Location = new System.Drawing.Point(17, 205);
+            this.lblAddress.Name = "lblAddress";
+            this.lblAddress.Size = new System.Drawing.Size(56, 17);
+            this.lblAddress.TabIndex = 5;
+            this.lblAddress.Text = "Address";
             // 
             // txtPhone
             // 
@@ -214,7 +326,7 @@ namespace PharmacySystem.Forms
             this.dgvCustomers.Name = "dgvCustomers";
             this.dgvCustomers.ReadOnly = true;
             this.dgvCustomers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCustomers.Size = new System.Drawing.Size(664, 501);
+            this.dgvCustomers.Size = new System.Drawing.Size(664, 660);
             this.dgvCustomers.TabIndex = 2;
             this.dgvCustomers.SelectionChanged += new System.EventHandler(this.dgvCustomers_SelectionChanged);
             // 
@@ -226,7 +338,7 @@ namespace PharmacySystem.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 561);
+            this.ClientSize = new System.Drawing.Size(984, 720);
             this.Controls.Add(this.dgvCustomers);
             this.Controls.Add(this.panelTopSearch);
             this.Controls.Add(this.panelLeft);
@@ -253,6 +365,7 @@ namespace PharmacySystem.Forms
         private System.Windows.Forms.Label lblPhone;
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.Button btnAddCustomer;
+        private System.Windows.Forms.Button btnUpdateCustomer;
         private System.Windows.Forms.Button btnClearCustomer;
         private System.Windows.Forms.Panel panelTopSearch;
         private System.Windows.Forms.Label lblSearch;
@@ -260,6 +373,14 @@ namespace PharmacySystem.Forms
         private System.Windows.Forms.Button btnSearchCustomer;
         private System.Windows.Forms.Button btnViewCustomers;
         private System.Windows.Forms.DataGridView dgvCustomers;
+        private System.Windows.Forms.Label lblAddress;
+        private System.Windows.Forms.TextBox txtAddress;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

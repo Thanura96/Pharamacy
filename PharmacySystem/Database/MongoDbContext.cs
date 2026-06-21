@@ -39,5 +39,6 @@ namespace PharmacySystem.Database
         public IMongoCollection<Medicine> Medicines => _database.GetCollection<Medicine>("Medicines");
         public IMongoCollection<Customer> Customers => _database.GetCollection<Customer>("Customers");
         public IMongoCollection<Sale> Sales => _database.GetCollection<Sale>("Sales");
+        public IMongoCollection<Order> Orders => _database.GetCollection<Order>("Orders");
     }
 }

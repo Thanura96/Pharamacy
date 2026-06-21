@@ -23,6 +23,13 @@ namespace PharmacySystem.Forms
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.chkRequiresPrescription = new System.Windows.Forms.CheckBox();
+            this.txtDiscountPercentage = new System.Windows.Forms.TextBox();
+            this.lblDiscountPercentage = new System.Windows.Forms.Label();
+            this.txtSupplier = new System.Windows.Forms.TextBox();
+            this.lblSupplier = new System.Windows.Forms.Label();
+            this.txtDosage = new System.Windows.Forms.TextBox();
+            this.lblDosage = new System.Windows.Forms.Label();
             this.dtpExpiryDate = new System.Windows.Forms.DateTimePicker();
             this.lblExpiryDate = new System.Windows.Forms.Label();
             this.numQuantity = new System.Windows.Forms.NumericUpDown();
@@ -51,10 +58,18 @@ namespace PharmacySystem.Forms
             // panelLeft
             // 
             this.panelLeft.BackColor = System.Drawing.Color.White;
+            this.panelLeft.AutoScroll = true;
             this.panelLeft.Controls.Add(this.btnClear);
             this.panelLeft.Controls.Add(this.btnDelete);
             this.panelLeft.Controls.Add(this.btnUpdate);
             this.panelLeft.Controls.Add(this.btnAdd);
+            this.panelLeft.Controls.Add(this.chkRequiresPrescription);
+            this.panelLeft.Controls.Add(this.txtDiscountPercentage);
+            this.panelLeft.Controls.Add(this.lblDiscountPercentage);
+            this.panelLeft.Controls.Add(this.txtSupplier);
+            this.panelLeft.Controls.Add(this.lblSupplier);
+            this.panelLeft.Controls.Add(this.txtDosage);
+            this.panelLeft.Controls.Add(this.lblDosage);
             this.panelLeft.Controls.Add(this.dtpExpiryDate);
             this.panelLeft.Controls.Add(this.lblExpiryDate);
             this.panelLeft.Controls.Add(this.numQuantity);
@@ -69,7 +84,7 @@ namespace PharmacySystem.Forms
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLeft.Location = new System.Drawing.Point(0, 0);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(320, 561);
+            this.panelLeft.Size = new System.Drawing.Size(320, 661);
             this.panelLeft.TabIndex = 0;
             // 
             // btnClear
@@ -80,7 +95,7 @@ namespace PharmacySystem.Forms
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Segoe UI", 9.5f, System.Drawing.FontStyle.Bold);
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(20, 470);
+            this.btnClear.Location = new System.Drawing.Point(20, 620);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(280, 36);
             this.btnClear.TabIndex = 14;
@@ -96,7 +111,7 @@ namespace PharmacySystem.Forms
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 9.5f, System.Drawing.FontStyle.Bold);
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(20, 420);
+            this.btnDelete.Location = new System.Drawing.Point(20, 570);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(280, 36);
             this.btnDelete.TabIndex = 13;
@@ -112,7 +127,7 @@ namespace PharmacySystem.Forms
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 9.5f, System.Drawing.FontStyle.Bold);
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(165, 370);
+            this.btnUpdate.Location = new System.Drawing.Point(165, 520);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(135, 36);
             this.btnUpdate.TabIndex = 12;
@@ -128,13 +143,83 @@ namespace PharmacySystem.Forms
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9.5f, System.Drawing.FontStyle.Bold);
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(20, 370);
+            this.btnAdd.Location = new System.Drawing.Point(20, 520);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(135, 36);
             this.btnAdd.TabIndex = 11;
             this.btnAdd.Text = "Add Medicine";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // chkRequiresPrescription
+            // 
+            this.chkRequiresPrescription.AutoSize = true;
+            this.chkRequiresPrescription.Font = new System.Drawing.Font("Segoe UI", 9.5f, System.Drawing.FontStyle.Bold);
+            this.chkRequiresPrescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(140)))), ((int)(((byte)(141)))));
+            this.chkRequiresPrescription.Location = new System.Drawing.Point(20, 485);
+            this.chkRequiresPrescription.Name = "chkRequiresPrescription";
+            this.chkRequiresPrescription.Size = new System.Drawing.Size(149, 21);
+            this.chkRequiresPrescription.TabIndex = 15;
+            this.chkRequiresPrescription.Text = "Requires Prescription";
+            this.chkRequiresPrescription.UseVisualStyleBackColor = true;
+            // 
+            // txtDiscountPercentage
+            // 
+            this.txtDiscountPercentage.Font = new System.Drawing.Font("Segoe UI", 10f);
+            this.txtDiscountPercentage.Location = new System.Drawing.Point(165, 445);
+            this.txtDiscountPercentage.Name = "txtDiscountPercentage";
+            this.txtDiscountPercentage.Size = new System.Drawing.Size(135, 25);
+            this.txtDiscountPercentage.TabIndex = 14;
+            this.txtDiscountPercentage.Text = "0";
+            // 
+            // lblDiscountPercentage
+            // 
+            this.lblDiscountPercentage.AutoSize = true;
+            this.lblDiscountPercentage.Font = new System.Drawing.Font("Segoe UI", 9f, System.Drawing.FontStyle.Bold);
+            this.lblDiscountPercentage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(140)))), ((int)(((byte)(141)))));
+            this.lblDiscountPercentage.Location = new System.Drawing.Point(162, 427);
+            this.lblDiscountPercentage.Name = "lblDiscountPercentage";
+            this.lblDiscountPercentage.Size = new System.Drawing.Size(84, 15);
+            this.lblDiscountPercentage.TabIndex = 13;
+            this.lblDiscountPercentage.Text = "Discount (%)";
+            // 
+            // txtSupplier
+            // 
+            this.txtSupplier.Font = new System.Drawing.Font("Segoe UI", 10f);
+            this.txtSupplier.Location = new System.Drawing.Point(20, 445);
+            this.txtSupplier.Name = "txtSupplier";
+            this.txtSupplier.Size = new System.Drawing.Size(135, 25);
+            this.txtSupplier.TabIndex = 12;
+            // 
+            // lblSupplier
+            // 
+            this.lblSupplier.AutoSize = true;
+            this.lblSupplier.Font = new System.Drawing.Font("Segoe UI", 9f, System.Drawing.FontStyle.Bold);
+            this.lblSupplier.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(140)))), ((int)(((byte)(141)))));
+            this.lblSupplier.Location = new System.Drawing.Point(17, 427);
+            this.lblSupplier.Name = "lblSupplier";
+            this.lblSupplier.Size = new System.Drawing.Size(53, 15);
+            this.lblSupplier.TabIndex = 11;
+            this.lblSupplier.Text = "Supplier";
+            // 
+            // txtDosage
+            // 
+            this.txtDosage.Font = new System.Drawing.Font("Segoe UI", 10f);
+            this.txtDosage.Location = new System.Drawing.Point(20, 385);
+            this.txtDosage.Name = "txtDosage";
+            this.txtDosage.Size = new System.Drawing.Size(280, 25);
+            this.txtDosage.TabIndex = 11;
+            // 
+            // lblDosage
+            // 
+            this.lblDosage.AutoSize = true;
+            this.lblDosage.Font = new System.Drawing.Font("Segoe UI", 9f, System.Drawing.FontStyle.Bold);
+            this.lblDosage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(140)))), ((int)(((byte)(141)))));
+            this.lblDosage.Location = new System.Drawing.Point(17, 367);
+            this.lblDosage.Name = "lblDosage";
+            this.lblDosage.Size = new System.Drawing.Size(49, 15);
+            this.lblDosage.TabIndex = 10;
+            this.lblDosage.Text = "Dosage";
             // 
             // dtpExpiryDate
             // 
@@ -326,7 +411,7 @@ namespace PharmacySystem.Forms
             this.dgvMedicines.Name = "dgvMedicines";
             this.dgvMedicines.ReadOnly = true;
             this.dgvMedicines.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMedicines.Size = new System.Drawing.Size(664, 501);
+            this.dgvMedicines.Size = new System.Drawing.Size(664, 601);
             this.dgvMedicines.TabIndex = 2;
             this.dgvMedicines.SelectionChanged += new System.EventHandler(this.dgvMedicines_SelectionChanged);
             // 
@@ -338,7 +423,7 @@ namespace PharmacySystem.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 561);
+            this.ClientSize = new System.Drawing.Size(984, 661);
             this.Controls.Add(this.dgvMedicines);
             this.Controls.Add(this.panelTopSearch);
             this.Controls.Add(this.panelLeft);
@@ -381,6 +466,13 @@ namespace PharmacySystem.Forms
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnViewAll;
         private System.Windows.Forms.DataGridView dgvMedicines;
+        private System.Windows.Forms.Label lblDosage;
+        private System.Windows.Forms.TextBox txtDosage;
+        private System.Windows.Forms.Label lblSupplier;
+        private System.Windows.Forms.TextBox txtSupplier;
+        private System.Windows.Forms.Label lblDiscountPercentage;
+        private System.Windows.Forms.TextBox txtDiscountPercentage;
+        private System.Windows.Forms.CheckBox chkRequiresPrescription;
         private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

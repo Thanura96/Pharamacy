@@ -13,9 +13,12 @@ The Pharmacy Management System uses **MongoDB** as its database backend.
 
 | Collection | Purpose |
 |------------|---------|
-| `Medicines` | Medicine inventory records |
-| `Customers` | Registered customer records |
-| `Sales` | Completed sales transactions |
+| `Medicines` | Medicine inventory (name, category, price, stock, expiry, dosage, supplier, discount, prescription flag) |
+| `Customers` | Registered customers (extends `User`: full name, email, phone, address, username, password) |
+| `Sales` | Admin counter-sales transactions (legacy in-store sales) |
+| `Orders` | Customer online orders (items, status, prescription path, discounts) |
+
+There is no separate `Admins` collection. Admin login is validated in the application (`admin` / `admin123`).
 
 ## Install MongoDB
 
@@ -53,31 +56,41 @@ If `App.config` is unavailable at runtime, the application falls back to `mongod
 
 The database is created automatically on first use. No manual schema setup is required.
 
-When a user logs in successfully:
+When the application starts and connects to MongoDB:
 
-1. The application connects to MongoDB
-2. `PharmacyDB` is created if it does not exist
-3. Collections are created when data is inserted
-4. `DatabaseSeeder` inserts sample data if collections are empty
+1. `PharmacyDB` is created if it does not exist
+2. Collections are created when data is inserted
+3. `DatabaseSeeder` inserts sample data if a collection is empty
+
+Seeding runs during login initialization, not on every startup.
 
 ## Sample Seed Data
 
 ### Medicines
 
-| Name | Category | Price | Quantity | Notes |
-|------|----------|-------|----------|-------|
-| Paracetamol | Analgesics | 5.50 | 100 | Standard stock |
-| Amoxicillin | Antibiotics | 12.00 | 50 | Standard stock |
-| Vitamin C | Supplements | 8.75 | 8 | Low stock example |
+| Name | Category | Price | Qty | Dosage | Supplier | Discount | Prescription |
+|------|----------|-------|-----|--------|----------|----------|--------------|
+| Paracetamol | Analgesics | 5.50 | 100 | 500mg | PharmaCorp Ltd | 5% | No |
+| Amoxicillin | Antibiotics | 12.00 | 50 | 250mg | MedSupply Inc | 0% | **Yes** |
+| Vitamin C | Supplements | 8.75 | 80 | 1000mg | HealthPlus | 10% | No |
 
 ### Customers
 
-| Name | Phone |
-|------|-------|
-| John Doe | 5550199 |
-| Jane Smith | 5550144 |
-| Robert Johnson | 5550177 |
-| Emily Davis | 5550123 |
+| Full Name | Username | Password | Email | Phone |
+|-----------|----------|----------|-------|-------|
+| John Doe | `johndoe` | `pass123` | john.doe@example.com | 5550199 |
+| Jane Smith | `janesmith` | `pass123` | jane.smith@example.com | 5550144 |
+| Robert Johnson | `robertj` | `pass123` | robert.j@example.com | 5550177 |
+| Emily Davis | `emilyd` | `pass123` | emily.davis@example.com | 5550123 |
+
+Each customer record also includes a Cardiff address.
+
+### Orders and Sales
+
+- **Orders** are created when customers complete checkout through the customer portal.
+- **Sales** are created when admins process counter sales through the Sales module.
+
+Neither collection is pre-seeded.
 
 ## Viewing Data with MongoDB Compass
 
@@ -88,6 +101,7 @@ When a user logs in successfully:
    - `Medicines`
    - `Customers`
    - `Sales`
+   - `Orders`
 
 ## Resetting the Database
 
@@ -103,7 +117,7 @@ db.dropDatabase()
 ```
 
 4. Restart the application and log in again
-5. Sample data will be re-seeded automatically
+5. Sample medicines and customers will be re-seeded automatically
 
 ## Backup Recommendation
 
@@ -123,14 +137,22 @@ mongodump --db PharmacyDB --out ./backup
 - Wrong host or port in `App.config`
 - Firewall blocking port `27017`
 
+Admin features that require the database will show an offline warning. Customer login and registration require an active database connection.
+
 ### Seed data does not appear
 
-- Collections already contain documents
-- Seeding only runs when a collection is empty
+- Collections already contain documents (seeding only runs when a collection is empty)
 - Drop the database and log in again to re-seed
 
-### Sales do not reduce stock
+### Stock not updating after a sale or order
 
-- Confirm the sale completed without validation errors
-- Check the `Medicines` collection after a successful sale
+- Confirm the transaction completed without validation errors
+- **Counter sales** update stock via `SaleService` → `InventoryService`
+- **Customer orders** update stock during checkout in `MyCartForm`
+- Check the `Medicines` collection after a successful transaction
 - Review application logs in `%LOCALAPPDATA%\PharmacySystem\Logs\`
+
+### Order status not changing
+
+- Admins update order status through **Order Management** (`OrderManagementForm`)
+- Status values: `Pending`, `ReadyForPickup`, `Delivered`

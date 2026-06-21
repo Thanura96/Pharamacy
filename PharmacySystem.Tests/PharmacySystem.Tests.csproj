@@ -44,6 +44,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SaleServiceTests.cs" />
     <Compile Include="ValidationServiceTests.cs" />
+    <Compile Include="ExportServiceTests.cs" />
+    <Compile Include="SystemWorkflowTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PharmacySystem\PharmacySystem.csproj">

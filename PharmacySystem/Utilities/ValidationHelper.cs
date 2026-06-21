@@ -26,5 +26,20 @@ namespace PharmacySystem.Utilities
             // Matches formats like 555-1234, +1234567890, 1234567890
             return Regex.IsMatch(phone, @"^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$");
         }
+
+        public static bool IsValidEmail(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email)) return false;
+            try
+            {
+                return Regex.IsMatch(email,
+                    @"^[^@\s]+@[^@\s]+\.[^@\s]+$",
+                    RegexOptions.IgnoreCase);
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

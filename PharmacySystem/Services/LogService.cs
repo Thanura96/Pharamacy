@@ -1,14 +1,18 @@
 using System;
 using System.IO;
+using PharmacySystem.Logging;
 
-namespace PharmacySystem.Logging
+namespace PharmacySystem.Services
 {
-    public class FileLogger : ILogger
+    /// <summary>
+    /// Centralized logging service that persists application events to a text file.
+    /// </summary>
+    public class LogService : ILogger
     {
         private readonly string _logFilePath;
         private readonly object _lock = new object();
 
-        public FileLogger()
+        public LogService()
         {
             string logDirectory = Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
@@ -18,6 +22,8 @@ namespace PharmacySystem.Logging
             Directory.CreateDirectory(logDirectory);
             _logFilePath = Path.Combine(logDirectory, $"pharmacy_{DateTime.Now:yyyyMMdd}.log");
         }
+
+        public string LogFilePath => _logFilePath;
 
         public void LogInfo(string message)
         {
