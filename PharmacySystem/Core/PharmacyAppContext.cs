@@ -79,7 +79,7 @@ namespace PharmacySystem.Core
             var reportService = new ReportService(orderRepository, customerRepository, medicineRepository, inventoryService, saleService);
             var exportService = new ExportService();
 
-            logger.LogInfo("Pharmacy application context initialized successfully.");
+            logger.LogInfo("SmartMed Pharmacy application context initialized successfully.");
             return new PharmacyAppContext(
                 dbContext,
                 logger,

@@ -1,4 +1,4 @@
-# User Manual
+# SmartMed Pharmacy — User Manual
 
 ## Table of Contents
 
@@ -18,7 +18,7 @@
 
 ### Login
 
-1. Launch the Pharmacy Management System
+1. Launch **SmartMed Pharmacy**
 2. Select a role: **Admin** or **Customer**
 3. Enter username and password
 4. Click **Login**
@@ -59,7 +59,7 @@ If MongoDB is unavailable at startup:
 
 ## 2. Admin Portal
 
-After admin login, the **Admin Management Dashboard** opens with summary cards and expiry alerts.
+After admin login, the **SmartMed Pharmacy Admin Dashboard** opens with summary cards and expiry alerts.
 
 ### Navigation
 
@@ -231,7 +231,7 @@ Click **Refresh All** to reload all report tabs.
 
 ## 3. Customer Portal
 
-After customer login, the **Customer Portal** opens with a sidebar menu.
+After customer login, the **SmartMed Pharmacy Customer Portal** opens with a sidebar menu.
 
 ### Navigation
 

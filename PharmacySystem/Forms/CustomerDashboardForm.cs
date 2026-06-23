@@ -48,7 +48,7 @@ namespace PharmacySystem.Forms
 
             var lblWelcome = new Label
             {
-                Text = "Welcome to the Pharmacy Customer Portal",
+                Text = "Welcome to SmartMed Pharmacy",
                 Font = new Font("Segoe UI", 18F, FontStyle.Bold),
                 ForeColor = Color.FromArgb(44, 62, 80),
                 AutoSize = true,

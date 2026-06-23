@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-Install the following before running the Pharmacy Management System:
+Install the following before running **SmartMed Pharmacy**:
 
 1. **Windows 10 or later**
 2. **Visual Studio 2015+** with:

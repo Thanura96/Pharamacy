@@ -201,7 +201,7 @@ namespace PharmacySystem.Forms
             this.lblLogo.Name = "lblLogo";
             this.lblLogo.Size = new System.Drawing.Size(170, 25);
             this.lblLogo.TabIndex = 0;
-            this.lblLogo.Text = "Rx Management";
+            this.lblLogo.Text = "SmartMed";
             // 
             // panelHeader
             // 
@@ -503,7 +503,7 @@ namespace PharmacySystem.Forms
             this.Controls.Add(this.panelSidebar);
             this.Name = "AdminDashboardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Pharmacy Admin System";
+            this.Text = "SmartMed Pharmacy - Admin";
             this.Load += new System.EventHandler(this.AdminDashboardForm_Load);
             this.panelSidebar.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);

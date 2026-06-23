@@ -255,7 +255,7 @@ namespace PharmacySystem.Forms
             this.MaximizeBox = false;
             this.Name = "OrderManagementForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Pharmacy System - Order Management";
+            this.Text = "SmartMed Pharmacy - Order Management";
             this.Load += new System.EventHandler(this.OrderManagementForm_Load);
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();

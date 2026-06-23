@@ -16,7 +16,7 @@ namespace PharmacySystem
 
             var logger = new LogService();
             GlobalExceptionHandler.Register(logger);
-            logger.LogInfo("Pharmacy Management System starting.");
+            logger.LogInfo("SmartMed Pharmacy starting.");
 
             Application.Run(new LoginForm());
         }

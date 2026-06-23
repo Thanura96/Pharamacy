@@ -1,6 +1,6 @@
-# Pharmacy Management System
+# SmartMed Pharmacy
 
-A desktop Pharmacy Management System built with **C#**, **.NET Framework 4.6**, **Windows Forms**, and **MongoDB**. The application supports role-based access for **Admin** and **Customer** users.
+A desktop pharmacy management application built with **C#**, **.NET Framework 4.6**, **Windows Forms**, and **MongoDB**. The application supports role-based access for **Admin** and **Customer** users.
 
 ## Features
 
@@ -181,4 +181,4 @@ docs/                  Project documentation
 
 ## License
 
-Educational project for pharmacy management coursework and demonstrations.
+Educational project — **SmartMed Pharmacy** pharmacy management coursework and demonstrations.

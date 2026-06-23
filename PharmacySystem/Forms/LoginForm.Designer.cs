@@ -52,7 +52,7 @@ namespace PharmacySystem.Forms
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(277, 30);
             this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "Pharmacy System";
+            this.lblTitle.Text = "SmartMed Pharmacy";
             // 
             // lblSubtitle
             // 
@@ -63,7 +63,7 @@ namespace PharmacySystem.Forms
             this.lblSubtitle.Name = "lblSubtitle";
             this.lblSubtitle.Size = new System.Drawing.Size(155, 15);
             this.lblSubtitle.TabIndex = 1;
-            this.lblSubtitle.Text = "Login to manage inventory";
+            this.lblSubtitle.Text = "Sign in to SmartMed Pharmacy";
             // 
             // rdoAdmin
             // 
@@ -193,7 +193,7 @@ namespace PharmacySystem.Forms
             this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Pharmacy System - Sign In";
+            this.Text = "SmartMed Pharmacy - Sign In";
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
             this.ResumeLayout(false);

@@ -2,10 +2,10 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("PharmacySystem")]
-[assembly: AssemblyDescription("Pharmacy Management System")]
+[assembly: AssemblyDescription("SmartMed Pharmacy")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Cardiff App Developers")]
-[assembly: AssemblyProduct("PharmacySystem")]
+[assembly: AssemblyProduct("SmartMed Pharmacy")]
 [assembly: AssemblyCopyright("Copyright © 2026")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

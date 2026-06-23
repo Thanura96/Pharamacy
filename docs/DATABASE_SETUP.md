@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Pharmacy Management System uses **MongoDB** as its database backend.
+The **SmartMed Pharmacy** application uses **MongoDB** as its database backend.
 
 | Setting | Value |
 |---------|-------|

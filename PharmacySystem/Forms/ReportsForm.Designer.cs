@@ -328,7 +328,7 @@ namespace PharmacySystem.Forms
             this.Controls.Add(this.panelTop);
             this.Name = "ReportsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Pharmacy Reports";
+            this.Text = "SmartMed Pharmacy - Reports";
             this.Load += new System.EventHandler(this.ReportsForm_Load);
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();

@@ -153,7 +153,7 @@ namespace PharmacySystem.Forms
             this.lblLogo.Name = "lblLogo";
             this.lblLogo.Size = new System.Drawing.Size(139, 25);
             this.lblLogo.TabIndex = 0;
-            this.lblLogo.Text = "Customer Hub";
+            this.lblLogo.Text = "SmartMed";
             // 
             // panelHeader
             // 
@@ -196,7 +196,7 @@ namespace PharmacySystem.Forms
             this.MaximizeBox = false;
             this.Name = "CustomerDashboardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Pharmacy System - Customer Portal";
+            this.Text = "SmartMed Pharmacy - Customer Portal";
             this.Load += new System.EventHandler(this.CustomerDashboardForm_Load);
             this.panelSidebar.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);

@@ -16,11 +16,11 @@ namespace PharmacySystem.Forms
         {
             if (!EnsureDatabaseAvailable())
             {
-                lblHeaderTitle.Text = "Pharmacy Admin Dashboard (Offline)";
+                lblHeaderTitle.Text = "SmartMed Pharmacy Admin (Offline)";
                 return;
             }
 
-            lblHeaderTitle.Text = "Pharmacy Admin Management Dashboard";
+            lblHeaderTitle.Text = "SmartMed Pharmacy Admin Dashboard";
             Logger?.LogInfo("Admin Dashboard loaded.");
             RefreshDashboard();
         }
@@ -131,7 +131,7 @@ namespace PharmacySystem.Forms
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            if (ConfirmAction("Are you sure you want to exit the Pharmacy System?", "Exit Confirmation"))
+            if (ConfirmAction("Are you sure you want to exit SmartMed Pharmacy?", "Exit Confirmation"))
             {
                 Logger?.LogInfo("Application exit requested from Admin Dashboard.");
                 Application.Exit();
